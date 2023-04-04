@@ -1,9 +1,16 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import Navbar from './components/Navbar.vue'
 </script>
 
 <template>
-  <RouterView />
+  <main>
+    <Navbar />
+
+    <div class="flex items-center justify-center">
+      <RouterView class="mx-4 flex items-center justify-between max-w-screen-md w-full" />
+    </div>
+  </main>
 </template>
 
 <style>
