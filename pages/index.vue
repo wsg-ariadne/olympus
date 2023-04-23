@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div>
     <!-- Public report dashboard -->
     <h1 class="my-4 text-2xl font-bold">Reports</h1>
 
@@ -43,21 +43,17 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import { Dropdown, ListGroup, ListGroupItem } from 'flowbite-vue'
 import { ChevronRightIcon } from '@heroicons/vue/24/solid'
 
 export default defineComponent({
   name: 'HomeView',
   components: {
-    ChevronRightIcon,
-    Dropdown,
-    ListGroup,
-    ListGroupItem
+    ChevronRightIcon
   },
   data() {
     return {
@@ -66,7 +62,10 @@ export default defineComponent({
     }
   },
   setup() {
+    const runtimeConfig = useRuntimeConfig()
+
     return {
+      apiUrl: runtimeConfig.public.apiBaseUrl,
       sortingMethods: {
         newest: 'Date, newest',
         oldest: 'Date, oldest',
@@ -76,7 +75,7 @@ export default defineComponent({
   },
   async created() {
     // Call API
-    fetch(import.meta.env.VITE_API_URL + '/api/v1/reports')
+    fetch(this.apiUrl + '/api/v1/reports')
       .then(response => response.json())
       .then(data => {
         console.log(data)

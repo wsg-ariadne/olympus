@@ -1,16 +1,23 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-    "./node_modules/flowbite-vue/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/flowbite/**/*.{js,jsx,ts,tsx}",
+    './node_modules/flowbite/**/*.js'
+  ],
+  plugins: [
+    require('flowbite/plugin')
   ],
   theme: {
-    extend: {},
-  },
-  plugins: [
-    require("flowbite/plugin"),
-  ],
+    extend: {
+      colors: {
+        'adn-background': '#f7f0f0',
+        'adn-text': '#2a272a',
+        'adn-hilite': '#b677fa',
+        'adn-accent': '#66ced6',
+        'adn-accent-dark': '#048ba8',
+        'adn-white': '#fcfcfc',
+        'adn-gray': '#595359',
+        'adn-gray-light': '#ada1ad',
+        'adn-border': '#c1a6c1'
+      }
+    }
+  }
 }
-
