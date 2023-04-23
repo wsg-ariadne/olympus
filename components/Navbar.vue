@@ -56,10 +56,10 @@ const onTabClick = (tabId: string) => {
     <nav class="p-8">
       <!-- Logo -->
       <img
-        src="@/assets/logo.svg"
-        alt="ariadne"
-        class="h-4 mb-8 ml-6"
-      >
+          src="@/assets/ariadne.svg"
+          alt="ariadne"
+          class="h-4 mb-8 ml-6"
+        >
 
       <!-- Tabs -->
       <Tab v-for="tabDetail in tabs"
