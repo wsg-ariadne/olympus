@@ -6,7 +6,7 @@
 
       <!-- Page content -->
       <div class="col-start-2 col-span-3 overflow-scroll m-4">
-        <div class="p-4 border-adn-border border-2 bg-adn-white">
+        <div class="p-6 border-adn-border border-2 bg-adn-white rounded-lg">
           <NuxtPage/>
         </div>
       </div>
