@@ -159,7 +159,6 @@ export default defineComponent({
       fetch(this.apiUrl + '/api/v1/reports')
         .then(response => response.json())
         .then(data => {
-          console.log(data)
           this.latestData = data
           this.isRefreshing = false
           this.lastRefreshed = new Date()
