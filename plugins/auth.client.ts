@@ -4,8 +4,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   const runtimeConfig = useRuntimeConfig()
 
   const auth0 = createAuth0({
-    domain: runtimeConfig.public.auth0Domain,
-    clientId: runtimeConfig.public.auth0ClientId,
+    domain: runtimeConfig.public.authDomain,
+    clientId: runtimeConfig.public.authClientId,
     authorizationParams: {
       redirect_uri: window.location.origin
     }
