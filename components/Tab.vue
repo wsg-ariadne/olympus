@@ -11,7 +11,8 @@
     </div>
 
     <!-- Slot for text -->
-    <div class="text-left overflow-clip whitespace-nowrap text-ellipsis">
+    <div class="text-left overflow-clip whitespace-nowrap text-ellipsis"
+      :class="isActive ? 'font-bold' : ''">
       <slot></slot>
     </div>
   </button>
@@ -33,6 +34,9 @@ export default defineComponent({
     }
   },
   computed: {
+    isActive() {
+      return this.active
+    },
     classes() {
       if (this.active) {
         return `text-white bg-adn-text`
