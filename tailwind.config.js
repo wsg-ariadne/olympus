@@ -17,7 +17,11 @@ export default {
         'adn-gray': '#595359',
         'adn-gray-light': '#ada1ad',
         'adn-border': '#c1a6c1'
-      }
+      },
+    },
+    fontFamily: {
+      sans: ['IBM Plex Sans', 'sans-serif'],
+      mono: ['IBM Plex Mono', 'monospace'],
     }
   }
 }

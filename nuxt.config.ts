@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts'
   ],
   runtimeConfig: {
     public: {
@@ -13,5 +14,17 @@ export default defineNuxtConfig({
   },
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css'
+  },
+  googleFonts: {
+    families: {
+      'IBM+Plex+Sans': {
+        wght: [400, 700],
+        ital: [400, 700]
+      },
+      'IBM+Plex+Mono': {
+        wght: [400, 700],
+        ital: [400, 700]
+      }
+    }
   }
 })
