@@ -53,7 +53,7 @@ const onTabClick = (tabId: string) => {
 
 <template>
   <div>
-    <nav class="p-8 h-screen flex flex-col items-start justify-between">
+    <nav class="p-8 h-screen flex flex-col items-start justify-start">
       <div>
         <!-- Logo -->
         <img
@@ -87,7 +87,7 @@ const onTabClick = (tabId: string) => {
         </Tab>
       </div>
 
-      <div class="text-xs text-adn-gray-light">
+      <div class="text-xs text-adn-gray-light mt-10">
         <!-- Olympus logo -->
         <p class="mb-2">
           <img
