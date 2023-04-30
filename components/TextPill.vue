@@ -15,13 +15,13 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'TextPill',
   props: {
-    bgColor: {
+    bgClass: {
       type: String,
-      default: 'adn-accent-dark'
+      default: 'bg-adn-accent-dark'
     },
-    textColor: {
+    textClass: {
       type: String,
-      default: 'adn-white'
+      default: 'text-adn-white'
     },
     small: {
       type: Boolean,
@@ -31,7 +31,7 @@ export default defineComponent({
   computed: {
     classesString() {
       const sizing = this.small ? 'px-3 py-0.5 text-xs' : 'px-4 py-1 text-lg'
-      return `${sizing} bg-${this.bgColor} text-${this.textColor}`
+      return `${sizing} ${this.bgClass} ${this.textClass}`
     }
   }
 })

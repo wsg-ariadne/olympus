@@ -55,7 +55,7 @@
           class="flex flex-row justify-between items-center mb-1"
         >
           <p class="font-bold">{{ stat[0] }}</p>
-          <TextPill small bg-color="adn-text">{{ stat[1] }}</TextPill>
+          <TextPill small bg-class="bg-adn-text">{{ stat[1] }}</TextPill>
         </div>
       </div>
     </div>
