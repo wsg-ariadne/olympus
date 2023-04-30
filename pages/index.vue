@@ -147,6 +147,9 @@ export default defineComponent({
     }
   },
   methods: {
+    async goToReport(reportId: string) {
+      await navigateTo('/report/' + reportId)
+    },
     refreshReports() {
       this.isRefreshing = true
 
