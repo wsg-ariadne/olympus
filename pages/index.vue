@@ -15,10 +15,17 @@
         <!-- Refresh button -->
         <button class="hover:bg-adn-accent p-2 rounded-full active:bg-adn-accent-dark
           focus:outline-none active:ring-4 active:ring-adn-accent transition-colors"
+          :class="disableRefresh || isRefreshing ? 'cursor-not-allowed pointer-events-none' : ''"
           @click="refreshReports"
         >
-          <ArrowPathIcon class="h-6 w-6"
-            :class="isRefreshing ? 'animate-spin select-none cursor-not-allowed' : ''"
+          <CheckIcon
+            v-if="disableRefresh"
+            class="h-6 w-6 select-none"
+          />
+          <ArrowPathIcon
+            v-else
+            class="h-6 w-6"
+            :class="isRefreshing ? 'animate-spin select-none' : ''"
           />
         </button>
       </div>
@@ -90,18 +97,21 @@
 import { defineComponent } from 'vue'
 import { ArrowPathIcon, ChevronRightIcon } from '@heroicons/vue/24/solid'
 import TextPill from '@/components/TextPill.vue'
+import { CheckIcon } from '@heroicons/vue/24/outline'
 
 export default defineComponent({
   name: 'HomeView',
   components: {
     ArrowPathIcon,
     ChevronRightIcon,
-    TextPill
-  },
+    TextPill,
+    CheckIcon
+},
   data() {
     return {
       currentSortingMethod: 'newest',
-      isRefreshing: true,
+      disableRefresh: false,
+      isRefreshing: false,
       lastRefreshed: new Date(),
       latestData: null
     }
@@ -151,6 +161,10 @@ export default defineComponent({
       await navigateTo('/report/' + reportId)
     },
     refreshReports() {
+      if (this.isRefreshing) {
+        this.isRefreshing = false
+        return
+      }
       this.isRefreshing = true
 
       // Call API
@@ -160,6 +174,12 @@ export default defineComponent({
           this.latestData = data
           this.isRefreshing = false
           this.lastRefreshed = new Date()
+
+          // Disable refresh for 2 sec
+          this.disableRefresh = true
+          setTimeout(() => {
+            this.disableRefresh = false
+          }, 2000)
         })
     }
   }
