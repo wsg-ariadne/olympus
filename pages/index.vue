@@ -52,7 +52,7 @@
           class="flex flex-row justify-between items-center mb-1"
         >
           <p class="font-bold">{{ stat[0] }}</p>
-          <span class="px-3 font-bold font-mono
+          <span class="px-3 py-0.5 font-bold font-mono text-xs
           text-adn-white bg-adn-text rounded-full"
           >
             {{ stat[1] }}
