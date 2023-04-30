@@ -2,7 +2,7 @@
 <script lang="ts" setup>
 import { useAuth0 } from '@auth0/auth0-vue'
 import { HomeIcon } from '@heroicons/vue/24/outline'
-import { ArrowLeftOnRectangleIcon, ArrowRightOnRectangleIcon } from '@heroicons/vue/24/solid'
+import { ArrowLeftOnRectangleIcon } from '@heroicons/vue/24/solid'
 
 /**
  * Auth0 stuff
@@ -28,55 +28,38 @@ const logout = () => {
 /**
  * Tabs
  */
-const tabs = ref([
-  {
-    id: 'tab-1',
-    name: 'still i believe...',
-    icon: HomeIcon
-  },
-  {
-    id: 'tab-2',
-    name: "i'm missing something real...",
-    icon: ArrowRightOnRectangleIcon
-  },
-  {
-    id: 'tab-3',
-    name: 'i need someone who really sees me!!!',
-    icon: ArrowLeftOnRectangleIcon
+const route = useRoute()
+const onHomeTabClick = () => {
+  if (route.path !== '/') {
+    navigateTo('/')
   }
-])
-let activeTab = ref(tabs.value[0].id)
-const onTabClick = (tabId: string) => {
-  activeTab.value = tabId
 }
 </script>
 
 <template>
   <div>
     <nav class="p-8 h-screen flex flex-col items-start justify-start">
-      <div>
+      <div class="w-full">
         <!-- Logo -->
         <img
           src="@/assets/ariadne.svg"
           alt="ariadne"
-          class="h-4 mb-8 ml-6"
+          class="h-4 mb-8"
         >
 
         <!-- Tabs -->
-        <Tab v-for="tabDetail in tabs"
-          :key="tabDetail.id"
-          :tab-id="tabDetail.id"
-          :active="tabDetail.id === activeTab"
-          @tab-click="onTabClick"
+        <Tab
+          tab-id="homeTab"
+          :active="route.path === '/'"
+          @tab-click="onHomeTabClick"
         >
           <template #icon>
-            <component :is="tabDetail.icon" class="h-6 w-6" />
+            <HomeIcon class="h-6 w-6"></HomeIcon>
           </template>
           <template #default>
-            {{ tabDetail.name }}
+            Reports
           </template>
         </Tab>
-
         <Tab tab-id="login" @tab-click="login">
           <template #icon>
             <ArrowLeftOnRectangleIcon class="h-6 w-6" />
