@@ -41,22 +41,14 @@
         <p class="text-adn-gray-light mb-2">Top reported domain</p>
         <div class="flex flex-row justify-between items-center mb-4">
           <h2 class="font-bold font-mono text-3xl">{{ topDomainName }}</h2>
-          <span class="px-4 py-1 font-bold font-mono text-lg
-          text-adn-white bg-adn-accent-dark rounded-full"
-          >
-            {{ topDomainTotal }}
-          </span>
+          <TextPill>{{ topDomainTotal }}</TextPill>
         </div>
         <div v-for="stat in topDomainStats"
           :key="stat[0]"
           class="flex flex-row justify-between items-center mb-1"
         >
           <p class="font-bold">{{ stat[0] }}</p>
-          <span class="px-3 py-0.5 font-bold font-mono text-xs
-          text-adn-white bg-adn-text rounded-full"
-          >
-            {{ stat[1] }}
-          </span>
+          <TextPill small bg-color="adn-text">{{ stat[1] }}</TextPill>
         </div>
       </div>
     </div>
@@ -68,7 +60,8 @@
         v-for="report in mostRecentReports"
         :key="report['id']"
         class="border border-adn-border border-dashed rounded-md w-full p-4
-        hover:border-solid hover:border-adn-text transition-colors"
+        hover:border-solid hover:border-adn-text transition-colors cursor-pointer"
+        @click="goToReport(report['id'])"
       >
         <span class="block text-adn-accent-dark text-sm font-bold uppercase mb-0.5">
           {{ report['is_custom_type'] ? 'Other' : report['deceptive_design_type'] }}
@@ -96,12 +89,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { ArrowPathIcon, ChevronRightIcon } from '@heroicons/vue/24/solid'
+import TextPill from '@/components/TextPill.vue'
 
 export default defineComponent({
   name: 'HomeView',
   components: {
     ArrowPathIcon,
-    ChevronRightIcon
+    ChevronRightIcon,
+    TextPill
   },
   data() {
     return {
