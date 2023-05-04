@@ -22,8 +22,8 @@
           {{ reportType }}
           <TextPill
             class="inline-block align-text-bottom pb-0.5 ml-2"
-            small bg-color="adn-text"
-            v-show="isCustomReportType || true"
+            small bg-class="bg-adn-text"
+            v-show="isCustomReportType"
           >
             custom
           </TextPill>
