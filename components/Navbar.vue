@@ -2,7 +2,7 @@
 <script lang="ts" setup>
 import { useAuth0 } from '@auth0/auth0-vue'
 import { HomeIcon } from '@heroicons/vue/24/outline'
-import { ArrowLeftOnRectangleIcon } from '@heroicons/vue/24/solid'
+import { ArrowLeftOnRectangleIcon, ArrowRightOnRectangleIcon } from '@heroicons/vue/24/solid'
 
 /**
  * Auth0 stuff
@@ -47,6 +47,22 @@ const onHomeTabClick = () => {
           class="h-4 mb-8"
         >
 
+        <!-- User info -->
+        <div class="mb-8 ml-4 flex flex-row justify-start items-center" v-show="isAuthenticated">
+          <!-- Image -->
+          <img
+            v-if="user?.picture"
+            :src="user?.picture"
+            alt="user picture"
+            class="h-8 w-8 rounded-full mr-5"
+          >
+
+          <!-- User name -->
+          <p class="text-sm">
+            Welcome,<br><span class="font-bold">{{ user?.name }}</span>
+          </p>
+        </div>
+
         <!-- Tabs -->
         <Tab
           tab-id="homeTab"
@@ -60,7 +76,17 @@ const onHomeTabClick = () => {
             Reports
           </template>
         </Tab>
-        <Tab tab-id="login" @tab-click="login">
+
+        <!-- Login/logout -->
+        <Tab v-if="isAuthenticated" tab-id="logout" @tab-click="logout">
+          <template #icon>
+            <ArrowRightOnRectangleIcon class="h-6 w-6" />
+          </template>
+          <template #default>
+            Log out
+          </template>
+        </Tab>
+        <Tab v-else tab-id="login" @tab-click="login">
           <template #icon>
             <ArrowLeftOnRectangleIcon class="h-6 w-6" />
           </template>
