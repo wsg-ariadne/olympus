@@ -118,7 +118,7 @@ const onHomeTabClick = () => {
           made with &#10084;&#65039; in the Philippines
         </p>
         <ul class="list-none flex flex-row flex-wrap justify-between items-center">
-          <li><a class="text-adn-gray underline" href="/privacy">Privacy Policy</a></li>
+          <li><a class="text-adn-gray underline" href="https://wsg-ariadne.github.io/privacy/">Privacy Policy</a></li>
           <li><a class="text-adn-gray underline" href="https://github.com/wsg-ariadne">GitHub</a></li>
           <li><a class="text-adn-gray underline" href="https://deceptive.design">Deceptive Design</a></li>
         </ul>
