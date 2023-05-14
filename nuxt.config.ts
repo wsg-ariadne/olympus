@@ -3,8 +3,7 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-fonts',
-    '@nuxt/content'
+    '@nuxtjs/google-fonts'
   ],
   runtimeConfig: {
     public: {
