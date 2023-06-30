@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-adn-background grid grid-rows-1 grid-cols-4 gap-1 min-h-screen">
+  <main class="grid grid-rows-1 grid-cols-4 gap-1 min-h-screen">
     <!-- Navigation sidebar -->
     <Navbar class="col-start-1 col-end-1" />
 
