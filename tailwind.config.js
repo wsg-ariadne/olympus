@@ -16,7 +16,9 @@ export default {
         'adn-white': '#fcfcfc',
         'adn-gray': '#595359',
         'adn-gray-light': '#ada1ad',
-        'adn-border': '#c1a6c1'
+        'adn-border': '#c1a6c1',
+        'adn-blue': '#194d58',
+        'adn-purple': '#571f95'
       },
     },
     fontFamily: {
