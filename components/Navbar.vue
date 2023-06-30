@@ -66,7 +66,7 @@ const onHomeTabClick = () => {
         <!-- Tabs -->
         <Tab
           tab-id="homeTab"
-          :active="route.path === '/'"
+          :active="route.path === '/reports'"
           @tab-click="onHomeTabClick"
         >
           <template #icon>
